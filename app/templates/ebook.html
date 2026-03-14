@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<style>
+  :root {
+    --accent: #3B6D11;
+    --accent-light: #EAF3DE;
+    --text: #1a1a1a;
+    --muted: #555;
+    --border: #ddd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 17px;
+    background: #fff;
+  }
+  .cover {
+    text-align: center;
+    padding: 3rem 0 4rem;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 3rem;
+  }
+  .cover .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    font-family: Arial, sans-serif;
+  }
+  .cover h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    line-height: 1.25;
+    margin-bottom: .75rem;
+  }
+  .cover .subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+  .cover .meta {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #999;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .cover .meta span::before { content: "• "; }
+  h2 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: #111;
+    border-left: 4px solid var(--accent);
+    padding-left: 16px;
+    line-height: 1.3;
+  }
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: .6rem;
+    color: #222;
+  }
+  p { margin: 1rem 0; }
+  ul, ol { padding-left: 1.75rem; margin: 1rem 0; }
+  li { margin-bottom: .5rem; }
+  strong { color: #0a0a0a; }
+  em { color: #666; }
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-light);
+    padding: .75rem 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: #333;
+  }
+  .key-points {
+    background: #f8f9fa;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+  }
+  .key-points strong { display: block; margin-bottom: .5rem; color: var(--accent); font-family: Arial, sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+  .footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #aaa;
+  }
+  .trend-badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 11px;
+    font-family: Arial, sans-serif;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-right: 6px;
+  }
+  @media print {
+    body { padding: 2rem; font-size: 16px; }
+    .cover { padding: 2rem 0 3rem; }
+  }
+  @media (max-width: 600px) {
+    body { padding: 2rem 1.25rem; font-size: 16px; }
+    .cover h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="badge">eBook — {{ content_type }}</div>
+  <h1>{{ title }}</h1>
+  <div class="subtitle">{{ subtitle }}</div>
+  <div class="meta">
+    <span>{{ audience }}</span>
+    <span>{{ chapters }} capítulos</span>
+    <span>Tendencia: {{ trend_score }}/100</span>
+    <span>{{ date }}</span>
+  </div>
+</div>
+
+{{ body_html }}
+
+<div class="footer">
+  <span class="trend-badge">Tendencia {{ trend_score }}/100</span>
+  Momentum: {{ momentum }} &nbsp;|&nbsp; Generado con IA — Colconexus Data Center SAS &nbsp;|&nbsp; {{ date }}
+</div>
+
+</body>
+</html>
