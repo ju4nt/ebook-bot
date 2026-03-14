@@ -1,0 +1,19 @@
+{
+  "project": "ebook-bot",
+  "version": "1.0.0",
+  "company": "Colconexus Data Center SAS",
+  "daily_limit": 3,
+  "model": "claude-sonnet-4-20250514",
+  "max_tokens_trend": 1000,
+  "max_tokens_content": 4000,
+  "output_dir": "C:\\ebook-bot\\outputs",
+  "log_dir": "C:\\ebook-bot\\logs",
+  "languages": ["Español", "English", "Português"],
+  "content_types": [
+    "ebook-guia-practica",
+    "ebook-deep-dive",
+    "minicurso-5-modulos",
+    "minicurso-email"
+  ],
+  "chapter_options": [4, 6, 8]
+}
