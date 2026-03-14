@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<style>
+  :root {
+    --accent: #185FA5;
+    --accent-light: #E6F1FB;
+    --accent-mid: #378ADD;
+    --text: #1a1a1a;
+    --muted: #555;
+    --border: #ddd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 16px;
+    background: #fff;
+  }
+  .cover {
+    background: var(--accent);
+    color: #fff;
+    padding: 3rem 2.5rem;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,.07);
+    border-radius: 50%;
+  }
+  .cover .badge {
+    display: inline-block;
+    background: rgba(255,255,255,.2);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
+  }
+  .cover h1 { font-size: 2.2rem; font-weight: 700; line-height: 1.25; margin-bottom: .6rem; }
+  .cover .tagline { font-size: 1rem; opacity: .85; margin-bottom: 1.5rem; font-style: italic; }
+  .cover .meta { font-size: 13px; opacity: .7; display: flex; gap: 20px; flex-wrap: wrap; }
+  .module-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+    position: relative;
+  }
+  .module-num {
+    position: absolute;
+    top: -14px; left: 20px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 3px 14px;
+    border-radius: 20px;
+  }
+  .module-card h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: .75rem;
+    margin-top: .25rem;
+  }
+  .objective-box {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent-mid);
+    padding: .6rem 1rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .exercise-box {
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 8px;
+    padding: .75rem 1rem;
+    margin-top: 1rem;
+    font-size: 14px;
+  }
+  .exercise-box strong { color: #b8860b; display: block; margin-bottom: .4rem; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+  h3 { font-size: 1rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: .5rem; color: #222; }
+  p { margin: .75rem 0; }
+  ul, ol { padding-left: 1.5rem; margin: .75rem 0; }
+  li { margin-bottom: .4rem; }
+  strong { color: #0a0a0a; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+  .next-steps {
+    background: var(--accent-light);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    margin-top: 2.5rem;
+  }
+  .next-steps h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: .75rem; }
+  .footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: #aaa;
+  }
+  .trend-badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-right: 6px;
+  }
+  @media print { body { padding: 1.5rem; } .cover { -webkit-print-color-adjust: exact; } }
+  @media (max-width: 600px) { body { padding: 1.5rem 1rem; } .cover { padding: 2rem 1.25rem; } .cover h1 { font-size: 1.6rem; } }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="badge">Mini Curso — {{ content_type }}</div>
+  <h1>{{ title }}</h1>
+  <div class="tagline">{{ subtitle }}</div>
+  <div class="meta">
+    <span>Para: {{ audience }}</span>
+    <span>{{ chapters }} módulos</span>
+    <span>Tendencia: {{ trend_score }}/100</span>
+    <span>{{ date }}</span>
+  </div>
+</div>
+
+{{ body_html }}
+
+<div class="footer">
+  <span class="trend-badge">Tendencia {{ trend_score }}/100</span>
+  Momentum: {{ momentum }} &nbsp;|&nbsp; Generado con IA — Colconexus Data Center SAS &nbsp;|&nbsp; {{ date }}
+</div>
+
+</body>
+</html>
